@@ -1,112 +1,763 @@
-'use client'
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+'use client';
+import VolumeControl from '@/components/VolumeControl'; 
+import { useState, ChangeEvent } from 'react';
+import Image from "next/image";
+import Link from 'next/link';
 
-export default function Page() {
-  const [showMore, setShowMore] = useState(false);
+const Page = () => {
+  const [checkedItems, setCheckedItems] = useState({
+    sport: false,
+    suv: false,
+    mpv: true,
+    sedan: true,
+    coupe: true,
+    hatchback: true,
+    person2: false,
+    person4: false,
+    person6: false,
+    person8: false,
+  });
 
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    setCheckedItems((prev) => ({ ...prev, [name]: checked }));
   };
 
   return (
-    <div className='w-full flex'>
-      <div className="first hidden sm:flex w-[20%]">
-        <Image src={'/Images/Nav Bar Side.png'} alt='' width={360} height={1600}/>
-      </div>
-      <div className="sec w-full sm:w-[80%] bg-[#f6f7f9] p-4 sm:p-6  flex flex-col gap-10 font-[family-name:var(--font-geist-sans)]">
-        <section className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-between ">
-          <Image src={"/Images/Pick - Up.png"} alt="" width={582} height={132} className="w-[200px] md:w-[270px] lg:w-[582px]" />
-          <Image src={"/Images/Switch.png"} alt="" width={60} height={60} className="w-[80px]" />
-          <Image src={"/Images/Drop - Off.png"} alt="" width={582} height={132} className=' w-[200px] md:w-[270px] lg:w-[582px]' />
-        </section>
-        <section className="popular w-full flex flex-col gap-4">
-          <div className="sec grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {[
-              { title: 'Koenigsegg', image: '/Images/car.png', desc: 'Sport' },
-              { title: 'Nissan GT - R', image: '/Images/car (1).png', desc: 'sport' },
-              { title: 'Rolls-Royce', image: '/Images/Car (2).png', desc: 'Sport' },
-              { title: 'All New Rush', image: '/Images/suv (2).png', desc: 'Suv' },
-              { title: 'CR - V', image: '/Images/suv (4).png', desc: 'Suv' },
-              { title: 'ALLNEW TERIOS', image: '/Images/suv.png', desc: 'SUV' },
-              { title: 'MGZX Exclusive', image: '/Images/suv (5).png', desc: 'Hatchback' },
-              { title: 'NEW MGZS', image: '/Images/suv (1).png', desc: 'SUV' },
-              { title: 'MGZX Exclusive', image: '/Images/suv (5).png', desc: 'Hatchback' },
+    <div>
+      <div className="flex">
+        {/* Left Side */}
+        <div className="w-[360px] h-[2016px] bg-white">
+          <div className="flex flex-col w-[360px] h-[1600px] bg-white font-PlusJakartaSans space-y-4 p-6">
+            <p className="font-PlusJakartaSans font-semibold text-[12px] text-gray-400 leading-[15.12px]">TYPE</p>
+            <label>
+              <input
+                type="checkbox"
+                name="sport"
+                checked={checkedItems.sport}
+                onChange={handleCheckboxChange}
+              />
+              Sport (10)
+            </label>
 
-            ].map((car, index) => (
-              <Card key={index} className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
-                <CardHeader>
-                  <CardTitle className="w-full flex items-center justify-between">
-                    {car.title} <Image src={"/Images/heart.png"} alt="" width={20} height={20} />
-                  </CardTitle>
-                  <CardDescription>{car.desc}</CardDescription>
-                </CardHeader>
-                <CardContent className="w-full flex md:flex-col items-center justify-center gap-4">
-                  <Image src={car.image} alt="" width={220} height={68} />
-                  <Image src={"/Images/Specification.png"} alt="" width={256} height={24} className='hidden md:flex' />
-                  <Image src={"/Images/Specification (1).png"} alt="" width={256} height={24} className='md:hidden' />
-                </CardContent>
-                <CardFooter className="w-full flex items-center justify-between">
-                  <p>
-                    $99.00/<span className="text-gray-500">day</span>
-                  </p>
-                  <Link href={'/details'}>
-                  <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button></Link>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-          {showMore && (
-            <div className="sec grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-              {[
-                { title: 'MG ZX Exclusive', image: '/Images/suv.png', desc: 'SUV' },
-                { title: 'NEW MG ZS', image: '/Images/suv (4).png', desc: 'Sedan' },
-                { title: 'New MG ZX Excite', image: '/Images/suv.png', desc: 'Sport' },
-              ].map((car, index) => (
-                <Card key={index} className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
-                  <CardHeader>
-                    <CardTitle className="w-full flex items-center justify-between">
-                      {car.title} <Image src={"/Images/heart.png"} alt="" width={20} height={20} />
-                    </CardTitle>
-                    <CardDescription>{car.desc}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="w-full flex md:flex-col items-center justify-center gap-4">
-                    <Image src={car.image} alt="" width={220} height={68} />
-                    <Image src={"/Images/Specification.png"} alt="" width={256} height={24} className='hidden md:flex' />
-                    <Image src={"/Images/Specification (1).png"} alt="" width={256} height={24} className='md:hidden' />
-                  </CardContent>
-                  <CardFooter className="w-full flex items-center justify-between">
-                    <p>
-                      $99.00/<span className="text-gray-500">day</span>
-                    </p>
-               
-                    <Link href={'/details'}>
-                  <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button></Link>
-                   </CardFooter>
-                </Card>
-              ))}
+            <label>
+              <input
+                type="checkbox"
+                name="suv"
+                checked={checkedItems.suv}
+                onChange={handleCheckboxChange}
+              />
+              SUV (12)
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="mpv"
+                checked={checkedItems.mpv}
+                onChange={handleCheckboxChange}
+              />
+              MPV (16)
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="sedan"
+                checked={checkedItems.sedan}
+                onChange={handleCheckboxChange}
+              />
+              Sedan (20)
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="coupe"
+                checked={checkedItems.coupe}
+                onChange={handleCheckboxChange}
+              />
+              Coupe (14)
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                name="hatchback"
+                checked={checkedItems.hatchback}
+                onChange={handleCheckboxChange}
+              />
+              Hatchback (14)
+            </label>
+
+            <div className='w-[176px] h-[240px] space-y-4 flex flex-col font-PlusJakartaSans p-6'>
+              <p className="font-PlusJakartaSans font-semibold text-[12px] text-gray-400 leading-[15.12px]">C A P A C I T Y</p>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="person2"
+                  checked={checkedItems.person2}
+                  onChange={handleCheckboxChange}
+                />
+                2 Person (10)
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="person4"
+                  checked={checkedItems.person4}
+                  onChange={handleCheckboxChange}
+                />
+                4 Person (14)
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="person6"
+                  checked={checkedItems.person6}
+                  onChange={handleCheckboxChange}
+                />
+                6 Person (12)
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="person8"
+                  checked={checkedItems.person8}
+                  onChange={handleCheckboxChange}
+                />
+                8 or More (16)
+              </label>
+
+              <VolumeControl />
             </div>
-          )}
-        </section>
+          </div>
+        </div>
 
-        <section className="button w-full text-center">
-          <button 
-            onClick={toggleShowMore} 
-            className="bg-[#7384b8] px-4 py-2 text-white rounded-md mt-5"
-          >
-            {showMore ? "Show Less Cars" : "Show More Cars"}
-          </button>
-        </section>
+        {/* Right Side */}
+        <div className="w-[1080px] h-[2016px] bg-gray-200">
+          <div className='flex gap-[10px]'>
+            {/* Pick-Up Section */}
+            <div className="w-[450px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[10px] flex flex-col">
+              {/* Icon and Label */}
+              <div className='flex mt-[10px]'>
+                <Image
+                  src="/images/mark.png"
+                  width={16}
+                  height={16}
+                  alt="logo"
+                />
+                <p className="font-bold text-[16px] ml-[10px]">Pick-Up</p>
+              </div>
+
+              {/* Input Container */}
+              <div className='flex flex-grow gap-[24px] ml-[10px]'>
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Locations</h1>
+                  <select name="city" id="city" className='w-[76px] h-[20px]'>
+                    <option value="" disabled selected>Select your city</option>
+                    <option value="karachi">karachi</option>
+                    <option value="lahore">lahore</option>
+                    <option value="islamabad">islamabad</option>
+                  </select>
+                </div>
+                <p className='border-r-[1px] border-gray-200'></p>
+
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Date</h1>
+                  <select name="Select your Date" id="Date" className='w-[76px] h-[20px]'>
+                    <option value="" disabled selected>Select your Date</option>
+                    <option value="karachi">1</option>
+                    <option value="lahore">2</option>
+                    <option value="islamabad">3</option>
+                  </select>
+                </div>
+                <p className='border-r-[1px] border-gray-200'></p>
+
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Time</h1>
+                  <select name="Select your Date" id="Date" className='w-[108px] h-[20px]'>
+                    <option value="" disabled selected>Select your Time</option>
+                    <option value="karachi">4 to 5</option>
+                    <option value="lahore">7 to 8</option>
+                    <option value="islamabad">12 to 1</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div className='w-[50px] h-[60px] bg-blue-700 mt-[50px] items-center justify-center'>
+              <Image
+                src="/images/Swap.png"
+                width={18.08}
+                height={16.33}
+                alt="arrow"
+                className='justify-center items-center text-center mt-[20px] ml-[20px]'
+              />
+            </div>
+
+            {/* Drop-Off Section */}
+            <div className="w-[450px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[6px] flex flex-col">
+              {/* Icon and Label */}
+              <div className='flex mt-[10px]'>
+                <Image
+                  src="/images/mark.png"
+                  width={16}
+                  height={16}
+                  alt="logo"
+                />
+                <p className="font-bold text-[16px] ml-[10px]">Drop - Off</p>
+              </div>
+
+              {/* Input Container */}
+              <div className='flex flex-grow gap-[24px] ml-[10px]'>
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Locations</h1>
+                  <select name="city" id="city" className='w-[76px] h-[20px]'>
+                    <option value="" disabled selected>Select your city</option>
+                    <option value="karachi">karachi</option>
+                    <option value="lahore">lahore</option>
+                    <option value="islamabad">islamabad</option>
+                  </select>
+                </div>
+                <p className='border-r-[1px] border-gray-200'></p>
+
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Date</h1>
+                  <select name="Select your Date" id="Date" className='w-[76px] h-[20px]'>
+                    <option value="" disabled selected>Select your Date</option>
+                    <option value="karachi">1</option>
+                    <option value="lahore">2</option>
+                    <option value="islamabad">3</option>
+                  </select>
+                </div>
+                <p className='border-r-[1px] border-gray-200'></p>
+
+                <div className='w-[126px] h-[48px]'>
+                  <h1 className='font-bold text-[16px] leading-[24px] font-PlusJakartaSans'>Time</h1>
+                  <select name="Select your Date" id="Date" className='w-[76px] h-[20px]'>
+                    <option value="" disabled selected>Select your Time</option>
+                    <option value="karachi">4 to 5</option>
+                    <option value="lahore">7 to 8</option>
+                    <option value="islamabad">12 to 1</option>
+                  </select>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div className='w-[1312px]  h-[44px]  gap-[1076px] flex mt-[10px]'>
+</div>
+{/*  main row1cards*/}
+
+<div className='w-[1312px] h-[452px] gap-[32px] items center ml-[30px] flex'>
+    {/*1stcards*/}
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>Koenigsegg</h1>
+        <p className='text-gray-300 '>Sport</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[50px]">
+        <Image
+    src="/images/car.png"
+    width={232}
+    height={72}
+    alt='car pic'
+
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$99.00/ 
+    <p className='text-gray-300 text-[15px]'>day</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now
+   </button>
+    </div>
+</div>
+ 
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>Nissan GT - R</h1>
+        <p className='text-gray-300 '>Sport</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+        <Image
+    src="/images/car (1).png"
+    width={232}
+    height={72}
+    alt='car pic'
+    
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+<div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+  <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
+  <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$100.00</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+
+
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>Rolls - Royce</h1>
+        <p className='text-gray-300 '>Sedan</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+    <Image
+        src="/images/Car (2).png"
+        width={232}
+        height={72}
+        alt="car pic"
+    />
+</div>
+
+
+
+
+
+
+
+    <Image
+  src="/images/Spesification (2).png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$96.00/ 
+    <p className='text-gray-300  text-[15px]'>day</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+
+
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>Nissan GT - R</h1>
+        <p className='text-gray-300 '>Sport</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div>
+        <div className="flex justify-center items-center mt-[66px]"> 
+        <Image
+    src="/images/car (1).png"
+    width={232}
+    height={72}
+    alt='car pic'
+
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+    <div className='flex'>$80.00/
+    <p className='text-gray-300  text-[15px]'>day</p></div> 
+    <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$100.00</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+</div>
+
+
+{/*main row1cards*/}
+
+<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px] flex'>
+    {/*1stcards*/}
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>All New Rush</h1>
+        <p className='text-gray-300 '>SUV</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart (1).png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[50px]">
+        <Image
+    src="/images/Car (3).png"
+    width={232}
+    height={72}
+    alt='car pic'
+
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$72.00/ 
+    <p className='text-gray-300 text-[15px]'>day</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now
+   </button>
+    </div>
+</div>
+ 
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>CR  - V</h1>
+        <p className='text-gray-300 '>SUV</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+        <Image
+    src="/images/Car (4).png"
+    width={232}
+    height={72}
+    alt='car pic'
+    
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+<div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+  <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
+ </div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+
+
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px] whitespace-nowrap'>All New Terios</h1>
+        <p className='text-gray-300 '>SUV</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart (1).png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+    <Image
+        src="/images/Car (5).png"
+        width={232}
+        height={72}
+        alt="car pic"
+    />
+</div>
+
+
+
+
+
+
+
+    <Image
+  src="/images/Spesification (2).png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$74.00/ 
+    <p className='text-gray-300  text-[15px]'>day</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+
+
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>CR  - V</h1>
+        <p className='text-gray-300 '>SUV</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div>
+        <div className="flex justify-center items-center mt-[66px]"> 
+        <Image
+    src="/images/Car (6).png"
+    width={232}
+    height={72}
+    alt='car pic'
+
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+    <div className='flex'>$80.00/
+    <p className='text-gray-300  text-[15px]'>day</p></div> </div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+    </div>
+    {/*3rd*/}
+{/*main row1cards*/}
+
+<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px] flex mt-[20px]'>
+    {/*1stcards*/}
+<div className='w-[304px] h-[388px] rounded-[10px]  bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px] whitespace-nowrap'>MG ZX Exclusice</h1>
+        <p className='text-gray-300 '>Hatchback</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[50px]">
+        <Image
+    src="/images/Car (7).png"
+    width={232}
+    height={72}
+    alt='car pic'
+
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col'>$76.00/ 
+    <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$80.00</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now
+   </button>
+    </div>
+</div>
+ 
+
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>New MG ZS</h1>
+        <p className='text-gray-300 '>SUV</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart (1).png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+        <Image
+    src="/images/Car (8).png"
+    width={232}
+    height={72}
+    alt='car pic'
+    
+    />
+    </div>
+    <Image
+  src="/images/Spesification.png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+<div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+  <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
+ </div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+<div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
+    <div  className='flex'>
+    <div className='w-[128px] h-[48px] top-[24px] left-[24px] mt-[10px] ml-[10px]'>
+        <h1 className='font-bold text-[20px] leading-[30px]'>MG ZX Excite</h1>
+        <p className='text-gray-300 '>Hatchback</p>
+        </div>
+        <div className='ml-[100px] mt-[20px]'>
+        <Image
+        src="/images/heart.png"
+width={24}
+height={24}
+alt="heart"
+/>
+</div>
+        </div> 
+        <div className="flex justify-center items-center mt-[66px]">
+    <Image
+        src="/images/Car (7).png"
+        width={232}
+        height={72}
+        alt="car pic"
+    />
+</div>
+
+
+
+
+
+
+
+    <Image
+  src="/images/Spesification (2).png"
+  width={256}
+  height={24}
+  alt='car pic'
+  className='mt-[66px]'
+/>
+  <div className='flex gap-[4px] mt-[20px]'>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$74.00/ 
+    <p className='text-gray-300  text-[15px]'>day</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
+    </div>
+</div>
+
+
+</div>
+<div className="w-full h-[44px] flex justify-center items-center mt-[20px]">
+  <button className="w-[156px] h-[44px] rounded-[4px] px-[20px] gap-[8px] text-white bg-blue-500 whitespace-nowrap">
+    <Link href="/carDetail">Show more car</Link>
+  </button>
+</div>
+
+        </div>
       </div>
     </div>
-  )
-};
+  );
+}
+
+export default Page;

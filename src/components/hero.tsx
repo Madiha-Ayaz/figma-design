@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 const Hero = () => {
   return (
     <div className="w-[1440px] h-[2120px] top-[124px] bg-gray-200 ">
@@ -219,7 +219,8 @@ alt="heart"
 <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
   <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
   <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$100.00</p></div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -267,7 +268,8 @@ alt="heart"
   <div className='flex gap-[4px] mt-[20px]'>
   <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$96.00/ 
     <p className='text-gray-300  text-[15px]'>day</p></div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -307,9 +309,12 @@ alt="heart"
   className='mt-[66px]'
 />
   <div className='flex gap-[4px] mt-[20px]'>
-  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '><div className='flex'>$80.00/
-    <p className='text-gray-300  text-[15px]'>day</p></div> <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$100.00</p></div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+    <div className='flex'>$80.00/
+    <p className='text-gray-300  text-[15px]'>day</p></div> 
+    <p className='text-[14px] mt-[0px]  leading-[17.64px] text-gray-400 font-normal'>$100.00</p></div>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 </div>
@@ -404,7 +409,8 @@ alt="heart"
 <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
   <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
  </div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -452,7 +458,8 @@ alt="heart"
   <div className='flex gap-[4px] mt-[20px]'>
   <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$74.00/ 
     <p className='text-gray-300  text-[15px]'>day</p></div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -492,9 +499,11 @@ alt="heart"
   className='mt-[66px]'
 />
   <div className='flex gap-[4px] mt-[20px]'>
-  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '><div className='flex'>$80.00/
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+    <div className='flex'>$80.00/
     <p className='text-gray-300  text-[15px]'>day</p></div> </div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -581,7 +590,8 @@ alt="heart"
 <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
   <div className='flex'>$80.00/<p className='text-gray-300  text-[15px]'>day</p></div> 
  </div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -629,7 +639,8 @@ alt="heart"
   <div className='flex gap-[4px] mt-[20px]'>
   <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex'>$74.00/ 
     <p className='text-gray-300  text-[15px]'>day</p></div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 
@@ -669,14 +680,17 @@ alt="heart"
   className='mt-[66px]'
 />
   <div className='flex gap-[4px] mt-[20px]'>
-  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '><div className='flex'>$80.00
+  <div className='w-[116px] h-[44px] mt-[10px] gap-[4px]  font-bold text-[20px] leading-[25.2px] flex-col '>
+    <div className='flex'>$80.00
     <p className='text-gray-300  text-[15px]'>day</p></div> </div>
-   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>Rent Now</button>
+   <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
+    Rent Now</button>
     </div>
 </div>
 </div>
 <div className='w-[34px] h-[44px] top-[2012px]  gap-[438px] flex   mt-[20px] ml-[600px]'>
-<button className='w-[156px] h-[44px] radius-[4px] px-[20px] gap-[8px] text-white bg-blue-500 whitespace-nowrap '>Show more car</button>
+<button className='w-[156px] h-[44px] radius-[4px] px-[20px] gap-[8px] text-white bg-blue-500 whitespace-nowrap '>
+  <Link href=" /carDetail">Show more car</Link> </button>
 <p className='w-[140px] h-[24px] text-gray-400 whitespace-nowrap'>120 Car</p>
 </div>
 </div>
