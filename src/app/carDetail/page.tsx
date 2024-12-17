@@ -3,7 +3,7 @@ import VolumeControl from '@/components/VolumeControl';
 import { useState, ChangeEvent  } from 'react';
 import Image from 'next/image';
 import { FaStar, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-
+import Link from 'next/link';
 
 
 
@@ -210,9 +210,9 @@ const [expanded, setExpanded] = useState(false);
     </div>
     <div className="w-[444px] h-[120px] ">
   <p className="font-normal leading-[40px] font-PlusJakartaSans text-[20px] w-[432px] h-[1280px]">
-    NISMO has become the embodiment of Nissan's
+    NISMO has become the embodiment of Nissans
      outstanding performance, inspired by the most 
-     unforgiving proving ground, the "race track".
+     unforgiving proving ground, the race track.
   </p>
 </div>
 
@@ -741,7 +741,7 @@ alt="heart"
     <div className='flex'>$80.00/
     <p className='text-gray-300  text-[15px]'>day</p></div> </div>
    <button className='w-[116px] h-[44px] rounde[4px] bg-blue-700 px-[20px] text-white font-semi-bold text-[16px]'>
-    Rent Now</button>
+   <Link href="/categories">Rent Now</Link></button>
     </div>
 </div>
 

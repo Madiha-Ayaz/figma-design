@@ -750,7 +750,7 @@ alt="heart"
 </div>
 <div className="w-full h-[44px] flex justify-center items-center mt-[20px]">
   <button className="w-[156px] h-[44px] rounded-[4px] px-[20px] gap-[8px] text-white bg-blue-500 whitespace-nowrap">
-    <Link href="/carDetail">Show more car</Link>
+    <Link href="/RentalInfo">Show more car</Link>
   </button>
 </div>
 
