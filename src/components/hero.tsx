@@ -6,12 +6,13 @@ const Hero = () => {
     <div className="w-[1440px] h-[2120px] top-[124px] bg-gray-200 ">
       
       {/* Ads Section */}
-      <div className="flex gap-[20px] ml-[20px] items-center mt-[30px] ">
+      <div className="flex gap-[20px] ml-[20px] items-center mt-[30px]  sm:ml-[5px] ">
         <Image
           src="/images/Ads 1.png"
           width={640}
           height={360}
           alt="ad1"
+          className=' md:w-[640px]  sm:w-[520px]  '
           
         />
         <Image
@@ -21,9 +22,9 @@ const Hero = () => {
           alt="ad2"
         />
       </div>
-<div className=' flex'>
+<div className='flex sm:flex-col md:flex-row sm:ml-[5px] md:ml-[5px] '>
 {/* Pick-Up Section */}
-<div className="w-[582px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[20px]  flex flex-col px-[16px]">
+<div className="w-[582px] sm:w-[450px] md:w-[582px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[20px] sm:ml-[10px] md:ml-[20px]  flex flex-col px-[16px]">
   {/* Icon and Label */}
   <div className='flex mt-[10px]'>
   <Image
@@ -82,7 +83,7 @@ className=' justify-center item-center text-center mt-[20px] ml-[20px]'
 />
 </div>
 {/* Pick-Up Section */}
-<div className="w-[582px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[40px]  flex flex-col px-[16px]">
+<div className="w-[582px] sm:w-[450px] md:w-[582px] h-[132px] mt-[30px] rounded-[10px] bg-white ml-[40px]  flex flex-col px-[16px] sm:ml-[10px] md:ml-[20px]">
   {/* Icon and Label */}
   <div className='flex mt-[10px]'>
   <Image
@@ -106,7 +107,7 @@ className=' justify-center item-center text-center mt-[20px] ml-[20px]'
         </select>
       
     </div>
-    <p className='border-r-[1px] border-gray-200'></p>
+    <p className='border-r-[1px] border-gray-200  '></p>
 
 
     <div className='w-[126px] h-[48px]'>
@@ -140,7 +141,7 @@ className=' justify-center item-center text-center mt-[20px] ml-[20px]'
 </div>
 {/*  main row1cards*/}
 
-<div className='w-[1312px] h-[452px] gap-[32px] items center ml-[30px] flex'>
+<div className='w-[1312px] h-[452px] gap-[32px] items center ml-[30px] flex sm:flex-col md:flex-row'>
     {/*1stcards*/}
 <div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
     <div  className='flex'>
@@ -330,7 +331,7 @@ alt="heart"
 
 {/*main row1cards*/}
 
-<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px] flex'>
+<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px]  flex sm:flex-col md:flex-row'>
     {/*1stcards*/}
 <div className='w-[304px] h-[388px] rounded-[10px] bg-white '>
     <div  className='flex'>
@@ -511,7 +512,7 @@ alt="heart"
 {/*3rd*/}
 {/*main row1cards*/}
 
-<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px] flex mt-[20px]'>
+<div className='w-[1312px] h-[388px] gap-[32px] items center ml-[30px] flex mt-[20px]   sm:flex-col md:flex-row'>
     {/*1stcards*/}
 <div className='w-[304px] h-[388px] rounded-[10px]  bg-white '>
     <div  className='flex'>

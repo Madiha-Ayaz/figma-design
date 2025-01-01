@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
   	extend: {
+		screens: {
+			xs: '300px',
+			sm:'480px',// Custom smaller screen
+			
+		  },
   		SFProDisplay: ['SF Pro Display', 'sans-serif'],
   		PlusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],
   		colors: {
@@ -56,7 +61,7 @@ export default {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
   		}
   	}
   },
